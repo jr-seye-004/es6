@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES6</title>
+</head>
+<body>
+    <h1>CHECKPOINT ES6</h1>
+    
+</body>
+<script>
+  // Tâche 01: Itération avec Async/Await
+
+async function iterateWithAsyncAwait(values) {
+    for (const value of values) {
+        await new Promise(resolve => setTimeout(resolve, 1000)); // Attendre 1 seconde
+        console.log(value);
+    }
+}
+
+// Tâche 02: En attente d'un appel
+
+async function waitCall() {
+    try {
+        const response = await wait(); 
+        console.log('Données récupérées:', response);
+    } catch (error) {
+        console.error('Une erreur est survenue lors de la récupération des données:', error);
+    }
+}
+
+// Tâche 03: Gestion des erreurs avec Async/Await
+
+async function waitCall() {
+    try {
+        const response = await wait(); 
+        console.log('Données récupérées:', response);
+    } catch (error) {
+        console.error('Une erreur est survenue lors de la récupération des données:', error);
+    }
+}
+
+// Chaînage Async/Await
+
+async function chainedAsyncFunctions() {
+    await wait(1000); 
+    console.log('Première fonction asynchrone');
+    await wait(1000); 
+    console.log('Deuxième fonction asynchrone');
+    await wait(1000); 
+    console.log('Troisième fonction asynchrone');
+}
+
+// Tâche 04: En attente de demandes simultanées
+
+async function concurrentRequests() {
+    const [result1, result2] = await Promise.all([wait(), wait()]); 
+    console.log('Résultat de la première requête:', result1);
+    console.log('Résultat de la deuxième requête:', result2);
+}
+
+// Tâche 05: En attente d'appels parallèles
+
+async function parallelCalls(urls) {
+    const responses = await Promise.all(urls.map(url => wait(url))); 
+    console.log('Réponses obtenues:', responses)
+}
+
+// Fonction de simulation d'attente
+function wait() {
+    return new Promise(resolve => setTimeout(() => resolve('Données API'), 1000));
+}
+
+</script>
+</html>
